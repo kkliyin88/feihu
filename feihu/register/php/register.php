@@ -15,6 +15,7 @@ header('Content-Type:text/html;charset=utf8');
 $conn3 = new mysqli("127.0.0.1", "root", "", "mydb") or die("连接失败！");
 $sql3 = "insert into users(username,password,email,greatpeople,activenum) values('$username','$password','$email','$greatpeople','$activenum')";
 $result = $conn3->query($sql3);
+
 if ($result){
 	echo "插入数据成功";
 }

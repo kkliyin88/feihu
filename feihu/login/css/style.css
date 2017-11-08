@@ -19,9 +19,12 @@
 #login .top{width: 333px,height:32px;border: 1px solid green;line-height: 32px;}
 #login .bott{width: 333px,height:322px;
 border: 2px solid #c7012c;background: #fff;}
-#login .bott .prompt{width: 300px;height: 31px;background: #f5f5f5;padding-left: 8px;
-border:1px solid gray;margin: 10px;}
-#login .bott .prompt span{line-height: 31px;}
+#login .bott .prompt{width: 300px;height: 31px;background: #f5f5f5;
+border:1px solid gray;margin: 10px;color:red;}
+#login .bott .prompt span{line-height: 31px;display: block;width: 300px;
+height: 31px;}
+#login .bott .prompt .promptsp{color:red;background: pink;}
+
 #login .bott .ipt{ width:333px ;height: 90px;}
 #login .bott .ipt table tr td input{width: 220px;height: 28px;
 border: 1px solid #ccc;}

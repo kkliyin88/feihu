@@ -8,16 +8,22 @@ header('Content-Type:text/html;charset=utf8');
 
 	//PHP返回
 //
-//password,email,greatpeople,activenum
-//'$password','$email','$greatpeople','$activenum'
+
 $conn3 = new mysqli("127.0.0.1", "root", "", "mydb") or die("连接失败！");
-$sql3 = "insert into users(username,password,email,greatpeople,activenum) values('$username','$password','$email','$greatpeople','$activenum')";
+$sql3 = "select * from users where username='$username' and password='$password'";
 $result = $conn3->query($sql3);
-if ($result){
-	echo "插入数据成功";
+
+	
+if ($result && $result->num_rows>0) {
+    //登录成功
+    $obj = array("status"=>1, "msg"=>"登录成功！");
+    echo json_encode($obj);
 }
 else {
-	echo "插入数据失败";
+    //登录失败
+    $obj = array("status"=>0, "msg"=>"登录失败，用户名或密码错误！");
+
+    echo json_encode($obj);
 }
 $conn3->close();
 
@@ -34,4 +40,4 @@ $conn3->close();
 //}
 //$conn3->close();
 
-?>;
+?>

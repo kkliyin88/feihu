@@ -1,0 +1,64 @@
+{
+	"status": 1,
+	"msg": "success",
+	"secondkill": [
+		{
+			"id": 2080204003494,
+			"name":"散称豆干-鸡肉味",
+			"prices":35,
+			"killprices":23,
+			"unit":"¥",
+			"detailmsg":"满师傅散称豆干-泡椒味（碎状）500g",
+			"prompt":"温馨提示：因您购买的商品是厂家直发，因快递可能无法入厂而导致您可能是厂门口自提，建议您选择家庭地址！",
+			"img":"../images/secondkill/0.jpg",
+			"killmsg":"立即秒杀"
+		},
+		{
+			"id": 2060823000821,
+			"name":"B族维生素片",
+			"prices": 149,
+			"killprices":39,
+			"unit":"¥",
+			"detailmsgs":"B族维生素片",
+			"prompt": "温馨提示：因您购买的商品是厂家直发，因快递可能无法入厂而导致您可能是厂门口自提，建议您选择家庭地址！",
+			"img":"../images/secondkill/1.jpg",
+			"killmsg":"立即秒杀"
+		
+		},
+		{
+			"id": 2050514000322,
+			"name":"贝恩施儿童床铃",
+			"prices": 199,
+			"killprices":68,
+			"unit":"¥",
+			"detailmsg":"贝恩施 益智玩具 月亮床铃音乐带小夜灯助儿童婴儿好睡眠8305 彩色 ",
+			"prompt": "月亮小夜灯，宝宝妈妈都拥有好睡眠！",
+			"img": "../images/secondkill/2.jpg",
+			"killmsg":"立即秒杀"
+	
+		},
+		{
+			"id":2080223001426,
+			"name":"林下散养土鸡蛋顺丰包邮30枚装",
+			"prices": 79,
+			"killprices":59,
+			"unit":"¥",
+			"detailmsg":"30枚装（净重约1200g)",
+			"prompt": " 自然觅食，天然好蛋！",
+			"img": "../images/secondkill/3.jpg",
+			"killmsg":"立即秒杀"
+			
+		},
+		{
+			"id": 2080206005182,
+			"name":"福多牌香兰味蛋糕432g*2盒",
+			"prices": 149,
+			"killprices":39,
+			"unit":"¥",
+			"detailmsg":"香兰味两箱装",
+			"prompt": "马来西亚进口，品质优选，尽享美味！",
+			"img": "../images/secondkill/4.jpg",
+			"killmsg":"立即秒杀"
+		}
+	]
+}
