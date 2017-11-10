@@ -25,29 +25,45 @@ font-size: 16px;background: #c7012c;border:3px solid  #c7012c;position: relative
 
 /*nav开始*/
 #nav{width: 1200;height: 40px;background: #c7012c;line-height: 40px;margin:0 28px;border-radius: 2px;}
- #navl{width: 520px;height: 40px;}
+ #navl{width: 540px;height: 40px;}
  #navl span{height: 40px;width: 230px;
 float: left;display: block;line-height: 40px;
 text-align:left; overflow: visible;}
- #navl span a{height: 40px;width: 190px;
+ /*#navl  .navtext{height: 40px;width: 190px;
 display: block;line-height: 40px;
-font-size: 16px;color:white;}
+font-size: 16px;color:white;position: relative;top:-40px;}*/
+
  #navl a{height: 40px;line-height: 40px;font-size: 16px;
  color: white;margin: 0 10px;display: block;float: left;}
+ 
  #navl .navtext:hover {color:#fdba23;}
  
 /*二级标题部分*/
-#navl ul{position: relative;top:40px;padding-top:-50px ;}
-#navl ul li{width: 230px;height: 52px;
-color:black;background: #ffefe0;margin: 0;padding: 0;}
-#navl ul li .navsecond{width: 730px;height: 200px;border: 1px solid;
-position: relative;left:230px}
+ #navl ul{position: relative;top:39px;display: none;}
+ #navl ul li{width: 230px;height: 52px;
+background: #ffefe0;border-left:2px solid #c7022d ;
+border-right:2px solid #c7022d ;}
+ #navl ul li.liright{border: 2px solid #c7022d;
+  background: #fff;border-right:white;}
 
-#navl ul li a{color:#000;display: block;width: 214px;height: 52px;line-height: 52px;border-left: #f8d4bc;border-top: 1px silod white;overflow: hidden;
-border:1px solid blue; }
+ 
+  #navl ul li .menusec{width: 730px;height: 200px;
+  border: 2px solid #c7022d ;background: #fff;overflow: hidden;
+position: relative;left:232px;}
+
+ #navl ul li .menusec .menusecl{width: 510px;height: 200px;float:left;}
+ 
+ #navl ul li .menusec .menusecr{width: 215px;height: 198px;background: #fff8f0;float: right;}
+ #navl ul li .menusec .menusecr h2{color:red;font-size: 14px;border-bottom: 1px dashed  grey;margin-left:8px;}
+ #navl span ul li .menua{color:#000;display: block;width: 214px;height: 50px;line-height: 40px;border-left: #f8d4bc;border-top: 1px solid white;overflow: hidden;position: relative;top:-40px;}
+
+#navl span ul li .menusec   a{display: block;font-size: 12px;color:black;}
+#navl span ul li .menusec  a:hover{text-decoration: underline;}
+#navl span ul li .menusec .menusecr a {display: block;font-size: 12px;
+width:80px ;margin-left: 10px;}
 
  #navr{width: 215px;height: 30px;line-height: 30px;
- float:right; border-radius:10px;margin-right: 70px;border-radius: 2px ;margin-top: 5px;float: right;}
+ float:right; border-radius:10px;margin-right: 70px;border-radius: 2px ;margin-top: 5px;float: right;position: relative;top:-40px;}
   #navr #cart{width: 145px;height: 30px;background: white;
  display: block;line-height: 25px;text-align: center;float: left;
  color:#110f0f;border: none;background:  #ffefe0;border-radius: 2px;}
@@ -55,4 +71,14 @@ border:1px solid blue; }
    #navr #account{width: 70px;height: 30px;background:#fdba23;display: block;line-height: 30px;float:right;
    color:white;text-align: center;border-radius: 1px;}
 
+/*商品详情开始*/
+#profrom{width: 1200px;height: 42px;margin: 0 28px;border-bottom:2px solid #ddd;}
 
+#detail .detaill{width: 300px;}
+#detail .detaill img{width: 300px;height: 300px;}
+#detail .detaill ul{margin: left:10px;display: block;}
+#detail .detaill ul li{float: left;}
+#detail .detaill ul li img{width: 60px;height: 60px;border: 1px solid #eaeaea;margin: 5px;}
+#detail .detailr{width: 900px;height: 42px;margin: 0 28px;}
+#detail .detailr .scall{width: 100px;height: 100px;background: rgba(237,218,215,0.6);}
+#detail .detailr .img{width: 300px;height: 300px;border: 1px solid #ff9902;}
