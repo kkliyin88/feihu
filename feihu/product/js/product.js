@@ -64,12 +64,94 @@
 		  
 		  	  var smallimg=obj.smallimg
 		      var bigimg=obj.bigimg
-		     var img=$("<img src="+obj.img+" />").appendTo(".img")
-		     var scall=$("<div class=scall> </div>").appendTo(".img")
+		    
+		    
+		    
+		 //左边商品图片部分
+		     var img=$("<img class=pic src="+obj.img+" />").appendTo(".img")
+		     
+		      $("<img class=bigimg src="+obj.img+"  />").appendTo(".bigdiv") 
+		          
 		  	for(var i=0;i<smallimg.length;i++){
 			  	$("<li><img src="+smallimg[i]+"/> </li>").appendTo(".smallimg")
-			  	}
-	     	})	
+			  } 
+		  	//添加放大镜功能
+		  	//添加选择图像
+		  	$(".smallimg li").mouseenter(function(){
+		  		$(this).css({"opacity":1,}).siblings().css({"opacity":0.6})
+		  		  var i=$(this).index()
+		  		
+		  		 $(".img").html("<img class=pic src="+ bigimg[i] + "/>")
+		  		 $(".bigdiv").html("<img class=bigimg src="+ bigimg[i] + "/>")
+		     
+		  	   })
+		  		 	 //放大缩小
+			 $(".img").mousemove(function(e){
+			 	 	 $(".scall").show()
+			 	 	 $(".bigdiv").show()
+			 	 	 var scall=$(".bigimg").width() / $(".img").width();
+			 	 	 
+			 	     var x=e.pageX-$(".img").offset().left-$(".scall").width()/2
+		 	        var y=e.pageY-$(".img").offset().top-$(".scall").height()/2
+//		 	        //控制边界
+		 	        if(x<0){x=0}
+		 	        else if (x>$(".img").width()-$(".scall").width())
+		 	        {x=$(".img").width()-$("#scall").width();}
+		 	        
+		 	        if(y < 0){y=0}
+		 	        else if(y>$(".img").height()-$(".scall").height())
+		 	        {y=$(".img").height()-$(".scall").height()}
+//		 	        
+		 	        //放大
+		 	        $(".scall").css({left:x,top:y})
+		 	         $(".bigimg").css({left: -scall*x,top: -scall*y});
+		 	         
+		 	         
+		 	    })//mousemove  
+		 	    
+		 	    $(".img").mouseleave(function(){
+		 	    	 $(".scall").hide()
+			 	 	 $(".bigdiv").hide()
+		 	    })//leave
+		         
+		//右边商品介绍部分name
+		$("<h1 class=detailname>"+obj.name+"<span style=color:red> "+obj.msg1+"<span></h2>").appendTo(".name")
+		$("<h2 class=detailname2>"+obj.name2+"</h2>").appendTo(".name")
+		//添加价格栏prices
+		$("<span class=pricesl>飞虎价: <strong>"+obj.unit+obj.prices+"<strong></span ><span class=pricesr>商品编号："+obj.id+"</span>").appendTo(".prices")
+		//添加提示栏prompt
+	     $("<p>"+obj.prompt+"</p>").appendTo(".prompt")
+	     $("<p>"+obj.service+"</p>").appendTo(".prompt")
+		
+		//添加产品出厂信息
+		 $("<span>"+obj.supplier+"</span>").appendTo(".supplier")
+		 $("<span>"+obj.weight+"</span>").appendTo(".weight")
+		 $("<span>"+obj.originplace+"</span>").appendTo(".originplace")
+		 $("<span>"+obj.starttime+"</span>").appendTo(".starttime")
+		  
+		  //添加详情图片
+		  var arr3=obj.detailimg
+	       for(var kk=0;kk<arr3.length;kk++){
+	       	 $("<img src="+arr3[kk]+"/>").appendTo(".introduce")
+	       	 
+	       }
+	       
+	       //添加介绍详情切换效果
+	       var arr4=obj.message
+	       for(var l=0;l<arr4.length;l++){
+	       	 	 $("<li><img src="+arr4[l]+"/></li>").appendTo(".tab_list ")
+	       	  	 
+	       }  
+	       
+	       $(".demnav_list li").click(function(){
+	       	   	   $(".tab_list li").hide()
+	       	   var index=$(this).index()
+	       	    console.log(index)
+	       	   $(".tab_list li").eq(index).show().siblings().hide()
+	       	console.log( $(".tab_list li").eq(0).html() ) 
+	       })
+	       
+	    })//getjson	  
 })//$
  
 

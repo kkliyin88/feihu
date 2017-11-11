@@ -14,8 +14,14 @@
 			"img":"../images/2050226000450/01.jpg",
 			"killmsg":"null",
 			"checked":true,
+			"service":"由 飞虎乐购 发货，并提供售后服务。",
+			"supplier":"华为",
+			"weight":"0.3kg",
+			"originplace":"中国大陆",
+			"starttime":"2017/6/30 15:40:03",
 			"smallimg":["../images/2050226000450/smallimg/01.jpg","../images/2050226000450/smallimg/02.jpg","../images/2050226000450/smallimg/03.jpg","../images/2050226000450/smallimg/04.jpg"],
 			"bigimg":["../images/2050226000450/bigimg/01.jpg","../images/2050226000450/bigimg/02.jpg","../images/2050226000450/bigimg/03.jpg","../images/2050226000450/bigimg/04.jpg","../images/2050226000450/bigimg/05.jpg"],
-		    	"detailimg":["../images/2050226000450/detailimg/01.jpg","../images/2050226000450/detailimg/02.jpg","../images/2050226000450/detailimg/03.jpg","../images/2050226000450/detailimg/04.jpg","../images/2050226000450/detailimg/05.jpg"]
+		    "detailimg":["../images/2050226000450/detailimg/01.jpg","../images/2050226000450/detailimg/02.jpg","../images/2050226000450/detailimg/03.jpg","../images/2050226000450/detailimg/04.jpg","../images/2050226000450/detailimg/05.jpg"],
+		    "message":["../images/2050226000450/others/01.png","../images/2050226000450/others/02.png","../images/2050226000450/others/03.png"]
  }
 }
