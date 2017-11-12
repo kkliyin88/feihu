@@ -45,11 +45,9 @@ body {
 #right .topright .menu_bd {
 	display: none;
 }
-
-
 /*search开始*/
 
-#logowrap {
+#logowrap{
 	width: 1200px;
 	height: 102px;
 	overflow: hidden;
@@ -89,6 +87,8 @@ body {
 	background: #e6e6e6;
 }
 
+#step ul li #bg{background:#c7012c;}
+
 #step ul li {
 	height: 60px;
 	display: block;
@@ -99,24 +99,31 @@ body {
 	width: 30px;
 	height: 42px;
 	display: inline-block;
-	border-right: 1px solid gainsboro;
+	position: relative;
+	left:7px;
+	
 }
 
 #step ul li .stepmsg {
 	width: 150px;
 	height: 42px;
 	display: inline-block;
+
+	left:7px;
 }
 
+
 #step ul li .stepdire {
-	display: inline-block;
-	border-top: 22px solid transparent;
-	border-bottom: 22px solid transparent;
-	border-left: 30px solid #e6e6e6;
+	font-size: 42px;
+	color: #e6e6e6;
 	background: white;
+	background:#fff; 
+	text-align: left;
 	position: relative;
-	top: 15px;
+     left:-5px;
+     top:7px;
 }
+
 
 .mygoods {
 	height: 60px;
@@ -159,11 +166,15 @@ body {
 		width: 360px;
 	
 }
-#goodsbox table tr .num
-{
-		width: 180px;
-	
+
+
+#goodsbox table tr .num {
+	width: 130px;
 }
+#goodsbox table tr .num .ipt{width: 25px;display: inline-block;font-size: 14px;}
+#goodsbox table tr .num span{display: inline-block;font-size: 12px;margin: 5px;
+border: 1px solid #ddd;width: 15;height: 15px;cursor: point;}
+
 #goodsbox table tr .price
 {
 		width: 130px;
@@ -173,4 +184,12 @@ body {
 {
 		width: 130px;
 }
-#goodsbox .empty{width: 1200px;height: 250px;border: #ddd;display: none;}
+#goodsbox table tr .operator span{color: #5b5cb5;cursor: pointer;
+display: inline-block;margin: 2px;font-size: 12px;}
+#goodsbox table tr .operator span:hover{text-decoration: underline;}
+#goodsbox table tr .operator span.grep{border-left: 2px solid #a47979 ;border-right: 2px solid #a4e2ff;display: inline-block;width: 1px;}
+#goodsbox .total span{width: 80px;height: 100px;display: block;float: right;
+font-size: 18px;margin-right:2px ;line-height: 30px;}
+#goodsbox .total{display: none;}
+#goodsbox .total span.totalcost{color:red;}
+#goodsbox .empty{width: 1200px;height: 250px;border: #ddd;}

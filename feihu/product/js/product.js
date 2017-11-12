@@ -5,6 +5,7 @@
 		//设置全局变量arr用于存cookie信息	
 		
 			//通过ajax获取jsonwen文件
+		
       $.getJSON("../js/menu.json",function(obj){
 			  var arr=obj.menu1
 			for(var i=0;i<arr.length;i++){
@@ -161,8 +162,9 @@
 	    })//getjson
 	    
 	    //添加购物跳入效果
-	    
-	    
+	      //添加全局的的购物车商品数量,如果存在sum则取出sum值
+	      sum=$.cookie("sum")?parseInt(JSON.parse($.cookie("sum"))):0
+	      
 	    var offset = $("#cart").offset();  //结束的地方的元素
 	$(".addenjoy").click(function(event){   //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
 		var addcar = $(this);
@@ -186,12 +188,10 @@
 			onEnd: function(){
 				flyer.remove();
 			}
-		});
+		});//fly
 		
-		var n=parseInt( $(".cartnum").html() )
-		    n=n+1
-		    
-		    n=$(".cartnum").html(n)
+		
+		 
 		
 		//加入购物车cookie操作
 		//案例$.cookie('cookieName', 'cookieValue', { expires: 7 }); 
@@ -199,45 +199,60 @@
 	
 		   $.getJSON("../js/phone.json",function(obj){
 		    	var obj=obj.id2050226000450id
-			   
 			   var cookieobj={
-			         id:obj.id,
-			         name:obj.name2,
-			        prices:obj.prices,
-			        img:obj.img2,
-			        checked:"true",
-			        num:1
+			        "id":obj.id,
+			         "name":obj.name2,
+			        "prices":obj.prices,
+			       "img":obj.img2,
+			      "checked":"checked",
+			       " unit":obj.unit,
+			        "num":1
 			    }
+			     
+			    //购物车总数
 			    
 			    //获取cookie,判断cookie中是否有此产品的记录
-			      if($.cookie("mycart")){
-				      	var cookiearr=[JSON.parse( $.cookie("mycart"))]//获取原来数据
-				        //遍历数组查找相同的id好
-				        for(var i=0;i<cookiearr.length;i++){
-				        	 if(cookieobj.id==cookiearr[i].id){
-				        	 	num=cookieobj.num
-				        	 	num++
-				        	 	console.log(num)
-				        	 	cookieobj.num=num
-				        	 	console.log(cookieobj.num)
-				        	 	 cookiearr.push(cookieobj);
-				        	      break;
-				        	 }else{
-				        	 	 cookiearr.push(cookieobj);
-				        	       break;
-				        	 }  
-				        }  
-				    }else{var cookiearr=[];
-				      	 cookiearr.push(cookieobj) ;
-			        }
+			        var arr=$.cookie("mycart")
+			        console.log(arr)
+			      if(arr){
+				      	var arr=JSON.parse(arr)//获取原来数据
+				        //遍历数组查找相同的id好 
+				        var flag =true;
+				        for(var i=0;i<arr.length;i++){
+				        	 if(cookieobj.id==arr[i].id){
+				        	     arr[i].num++
+				        	     flag =false;
+				        	     break;
+				        	     console.log("进入true")
+				        	  }
+				        } 
+				        
+				        if(flag){
+				            
+				        	 arr.push(cookieobj) ;
+				        	  console.log("进入false")
+				         }   
+				        
+                    }else{
+                    	  arr=[];  
+                    	 arr.push(cookieobj) ;
+                    }
+				        
+			            
 			      //重新写入cookie
-			    $.cookie("mycart",JSON.stringify(cookiearr), {expires:30, path:"/"})
-//			   
-			    console.log(JSON.stringify(cookiearr))    
-			
+			        sum++  
+			        console.log(flag)
+			    $(".cartnum").html(sum)
+			   console.log(arr)
+//			    $.cookie("sum",JSON.stringify(sum), {expires:30,path:"/"})
+			    $.cookie("mycart",JSON.stringify(arr),{expires:7,path:"/"})
+			   
+			    
 		  })//getJSON
-	});//enjoy click
+	});//enjoy click  
 	  
+	
+	
 	
 })//$
    
