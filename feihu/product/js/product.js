@@ -2,7 +2,9 @@
 //top开始
     $(function(){
 			
-				//通过ajax获取jsonwen文件
+		//设置全局变量arr用于存cookie信息	
+		
+			//通过ajax获取jsonwen文件
       $.getJSON("../js/menu.json",function(obj){
 			  var arr=obj.menu1
 			for(var i=0;i<arr.length;i++){
@@ -55,18 +57,21 @@
 				   $(this).hide()
 				})
 		})	
+		 
 		
+		//获取Id名称 
+////	
+//		var id=location.pathname.split("/")
+//		    id=parseInt(id[id.length-1])
+		  
 		//	//创建放大镜模块
 		
 		  $.getJSON("../js/phone.json",function(obj){
 		  	 
-		      var obj=obj.id2050226000450id
-		  
+//		  	var ID="id"+id+"id"
+		     var obj=obj.id2050226000450id   //全局变量
 		  	  var smallimg=obj.smallimg
 		      var bigimg=obj.bigimg
-		    
-		    
-		    
 		 //左边商品图片部分
 		     var img=$("<img class=pic src="+obj.img+" />").appendTo(".img")
 		     
@@ -144,17 +149,100 @@
 	       }  
 	       
 	       $(".demnav_list li").click(function(){
+	       	     
 	       	   	   $(".tab_list li").hide()
+	       	   	   $(this).addClass("over").siblings().removeClass()
 	       	   var index=$(this).index()
 	       	    console.log(index)
 	       	   $(".tab_list li").eq(index).show().siblings().hide()
 	       	console.log( $(".tab_list li").eq(0).html() ) 
 	       })
 	       
-	    })//getjson	  
+	    })//getjson
+	    
+	    //添加购物跳入效果
+	    
+	    
+	    var offset = $("#cart").offset();  //结束的地方的元素
+	$(".addenjoy").click(function(event){   //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
+		var addcar = $(this);
+		var img = $(".pic").attr('src');
+		
+		var flyer = $('<img class="u-flyer" src="'+img+'">');
+		flyer.fly({
+			//开始位置
+			start: {
+				left: event.clientX,
+				top: event.clientY
+			},
+			//结束位置
+			end: {
+				left: offset.left,
+				top: offset.top,
+				width: 0,
+				height: 0
+			},
+			//结束后
+			onEnd: function(){
+				flyer.remove();
+			}
+		});
+		
+		var n=parseInt( $(".cartnum").html() )
+		    n=n+1
+		    
+		    n=$(".cartnum").html(n)
+		
+		//加入购物车cookie操作
+		//案例$.cookie('cookieName', 'cookieValue', { expires: 7 }); 
+		//获取id price num img checked
+	
+		   $.getJSON("../js/phone.json",function(obj){
+		    	var obj=obj.id2050226000450id
+			   
+			   var cookieobj={
+			         id:obj.id,
+			         name:obj.name2,
+			        prices:obj.prices,
+			        img:obj.img2,
+			        checked:"true",
+			        num:1
+			    }
+			    
+			    //获取cookie,判断cookie中是否有此产品的记录
+			      if($.cookie("mycart")){
+				      	var cookiearr=[JSON.parse( $.cookie("mycart"))]//获取原来数据
+				        //遍历数组查找相同的id好
+				        for(var i=0;i<cookiearr.length;i++){
+				        	 if(cookieobj.id==cookiearr[i].id){
+				        	 	num=cookieobj.num
+				        	 	num++
+				        	 	console.log(num)
+				        	 	cookieobj.num=num
+				        	 	console.log(cookieobj.num)
+				        	 	 cookiearr.push(cookieobj);
+				        	      break;
+				        	 }else{
+				        	 	 cookiearr.push(cookieobj);
+				        	       break;
+				        	 }  
+				        }  
+				    }else{var cookiearr=[];
+				      	 cookiearr.push(cookieobj) ;
+			        }
+			      //重新写入cookie
+			    $.cookie("mycart",JSON.stringify(cookiearr), {expires:30, path:"/"})
+//			   
+			    console.log(JSON.stringify(cookiearr))    
+			
+		  })//getJSON
+	});//enjoy click
+	  
+	
 })//$
- 
+   
 
+	
 
 
 
