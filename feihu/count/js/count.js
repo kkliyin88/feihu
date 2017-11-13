@@ -1,83 +1,168 @@
 
 $(function(){
      //获取cookie
-    console.log($.cookie("mycart"))
-    var arr=JSON.parse($.cookie("mycart"))
-         console.log(arr.length)  
          reflash()
+         console.log($.cookie("mycart"))
     function reflash(){
-//  	 $(".goods").empty()
+    	
     	
 	    if( $.cookie("mycart")){    
-	    	
-	    	   
+	    	 $(".goods").remove()
+	    	  $(".empty").hide();
+               $(".total").show();  
 	    	 var arr=JSON.parse($.cookie("mycart"))
-	    	  console.log(arr) 
-        
-           	console.log(arr.length)
 	    	for(var i=0;i<arr.length;i++){
 	    		var  obj=arr[i]
-	    		var tr=$("<tr class=goods></tr>" ).appendTo(".table")
-	    	    $("<td ><input class=select type=checkbox /></td>" ).appendTo(tr) 
+	    		var tr=$("<tr class=goods ></tr>" ).appendTo(".table")
+	    	     
+	    	     if(obj.checked)
+	    	     { $("<td class=goodsselect><input class=select type=checkbox checked=checked /></td>").appendTo(tr);}
+			    else{ $("<td><input class=select type=checkbox /></td>").appendTo(tr);}
+//	    	    
 				$("<td class=pic><img src="+obj.img+"/></td>" ).appendTo(tr)
 			    $("<td class=name>"+obj.name+"</td>" ).appendTo(tr)
 			    var tdnum=$("<td class=num> </td>" ).appendTo(tr)
 			    var minus=$( "<span class=iconfont>&#xe61e;</span>").appendTo(tdnum)
 			    $(minus).addClass("minus")
-			    var ipt=$("<input class=ipt />").appendTo(tdnum)
+			    $("<input class=ipt type=text value="+ obj.num +">" ).appendTo(tdnum)
 			    var add=$("<span class=iconfont >&#xe62a;</span>").appendTo(tdnum)
 			        $(add).addClass("add")
-			    $("<td class=price>"+obj.prices+"</td>" ).appendTo(tr)
-			    $("<td class=price>"+obj.prices+"</td>" ).appendTo(tr)
+			    $("<td class=price>"+obj.price+"</td>" ).appendTo(tr)
+			    $("<td class=price>"+obj.price+"</td>" ).appendTo(tr)
 			    $("<td class=operator><span class=del>删除</span><span class=like>收藏</span></td>" ).appendTo(tr)
-			    $(".ipt").eq(i).val(obj.num)
-			    $(".select").eq(i).prop(obj.checked)
-			    
+//			  
+//			    
 	    	 }//for
 	    
 	    	//显示商品数量num
 	    	
 	    	//添加加减事件
 	    	//+
-	         $(".table").on("click",".add",function(){
+	         $(".goods").on("click",".add",function(){
 	         		var cookieArr = JSON.parse( $.cookie("mycart") );
-					var index = $(this).index(".table .add");
-					
+					var index = $(this).index(".goods .add");
 					cookieArr[index].num++;
-					var sum=$.cookie("sum")
-					  sum++
-				  $.cookie("sum",JSON.stringify(sum), {expires:30})
-				$.cookie("mycart", JSON.stringify(cookieArr), {expires:30,path:"/"});
-				reflash()
+					$(".ipt").val(cookieArr[index].num)
+				$.cookie("mycart", JSON.stringify(cookieArr),{expires:30,path:"/"});
+				reflash();
 	         })
 //	    	
-	    	  $(".table").on("click",".minus",function(){
-	         		var cookieArr = JSON.parse( $.cookie("mycart") );
-					var index = $(this).index(".table .minus");
+	    	  $(".goods").on("click",".minus",function(){
+	         		var cookieArr = JSON.parse( $.cookie("mycart"));
+	         		console.log(cookieArr);
+					var index = $(this).index(".goods .minus");
 					if(cookieArr[index].num>0){cookieArr[index].num--;}
-				    $.cookie("mycart", JSON.stringify(cookieArr), {expires:30});
-				    var sun=$.cookie("sum")
-					  sum--
-				  $.cookie("sum",JSON.stringify(sum), {expires:30,path:"/"})
+					console.log(cookieArr[index].num);
+					$(".ipt").val(cookieArr[index].num)
+				    $.cookie("mycart", JSON.stringify(cookieArr), {expires:30,path:"/"});
 				    reflash()
-	         })
+	       })  
 	    	 // checkbox
-	    	   $(".table").on("click",".select",function(){
+	    	   $(".goods").on("click",".select",function(){
 	    	   	    var cookieArr = JSON.parse( $.cookie("mycart") );
 	    	   	    console.log(cookieArr)
-					var index = $(this).index(".table .select");
-				    cookieArr[index].check = !cookieArr[index].checked;
+					var index = $(this).index(".goods .select");
+					console.log([index])
+					console.log(cookieArr[index])
+					console.log(cookieArr[index].checked)
+				    cookieArr[index].checked=!cookieArr[index].checked
+				 
+				   //设置选框的值
+				  
 				    $.cookie("mycart", JSON.stringify(cookieArr), {expires:30,path:"/"});
+				    isAllcheck() 
 				    reflash()
 	             })
 	    	   
-	    	   
-	    	     
-	    }else{
+	    	   //allcheck
+	    	   var all=0
+	    	    function isAllcheck(){
+	    	     	   	if ( !$.cookie("mycart") ){
+						return;   }
+	    	     	   	
+	    	     	   	var cookieArr = JSON.parse( $.cookie("mycart") );
+	    	     	   	for (var i=0; i<cookieArr.length; i++) {
+						all += cookieArr[i].checked;
+					    }
+					
+					//判断子项目全选了
+					if (cookieArr.length!=0 && all==cookieArr.length) {
+						$("#allCheck").prop("checked", true);
+					} 
+					else { //没有全选
+						$("#allCheck").prop("checked", false);
+					}
+				
+	    	    }//isallcheck
+	    	    
+	    	       //点击全选按钮
+    	    	$("#allcheck").click( function(){
+				//如果没有cookie,则直接返回
+				reflash()
+				console.log("allcheck")
+				
+				if ( !$.cookie("mycart") ){
+						console.log(22)
+					return;
+				}
+				var cookieArr = JSON.parse( $.cookie("mycart") );
+				   //遍历cookieArr
+					console.log(11)
+				for (var i=0; i<cookieArr.length; i++) {
+				
+					if ( $(this).prop("checked") ) {
+						cookieArr[i].checked = true; 
+						//全选
+					}
+					else {
+						cookieArr[i].checked = false; //全不选
+					}
+				}	
+					$.cookie("mycart", JSON.stringify(cookieArr), {expires:30, path:"/"});         
+					reflash()
+    	    	} )
+    	    	
+	    	    
+	    	    //删除本条
+	    	    $(".goods").on("click",".del",function(){
+					//如果没有cookie,则直接返回
+					  console.log($.cookie("mycart"))
+					if ( !$.cookie("mycart") ){return;}
+					var cookieArr = JSON.parse( $.cookie("mycart") );
+					var index=$(this).index(".goods .del")
+					//遍历cookieArr
+					console.log(index)
+					//删除数组
+					cookieArr.splice(index,1)
+					console.log(cookieArr)
+					
+					//重新存入最新的cookieArr,替换原来的cookie
+					$.cookie("mycart", JSON.stringify(cookieArr), {expires:30, path:"/"});      
+					//刷新UI
+					reflash();
+				})
+	    	    
+	    	    //清空购物车
+	    	    $("#dropcart").click(function(){
+	    	    	if ( !$.cookie("mycart") ){return;}
+	    	    	$.cookie("mycart", JSON.stringify(null), {expires:7, path:"/"});
+	    	    	reflash();
+	    	    })
+	    	    
+	    	    
+	    	      //计算商品总价
+		    	var cost=0
+		    	for(var k=0;k<arr.length;k++){
+		    	    if(arr[k].checked){
+		    	     	cost=arr[k].num*arr[k].price
+		    	    } 	
+		    	 }
+		    	 $("#totalcost").html(" ¥ "+cost)
+	    	      
+	         }else{
 	    	//如果购物车为空则将商品列表删除
 	    	$(".table").hide();
 	    	$(".empty").show();
-	    	console.log("数据为空");
 	    	$(".total").hide();
 	    }//if
 //	    

@@ -127,14 +127,17 @@ font-size:15px;font-weight: 500;line-height: 30px;text-align: center;}
 .mainphone{width: 1215px;height:488px;margin: 0 28px;position: relative;
 background: white;}	
 .mainl{float:left;margin: 0;}
+.mainl .mainll a{display: block;width:199px ;height: 416px;overflow: hidden;}
 .mainll{float: left;}
 .mainlr{float:left;}
+.mainlr ul li{width: 399px;height: 208px;overflow: hidden;}
 
 .mainr{width: 612px;height: 425px;float:right;margin: 0;}
 
 .mainlist li{float: left;width: 200px;height: 209px;border-left:2px solid #fafafa ;
 border-bottom:2px solid #fafafa ;background: white;}
 .mainlist li a img{float: left;width: 203px;height: 158px;}
+.mainlist li dl dt a{display:block;width: 203px;height: 158px;overflow: hidden;}
 
 .mainlist li dl dd{text-align: center;}
 .mainname{width: 170px;height: 18px;line-height: 18px;font-size: 14px;

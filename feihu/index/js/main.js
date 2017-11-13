@@ -21,25 +21,21 @@
 				var wrapprice=$("<a href=# class=wrapprice> </a>").appendTo($(dd))
 		    	var dd=$("<h2 >"+obj.unit +obj.killprices +"<span>"+obj.unit+obj.prices+"</span></h2><h4 >"+obj.killmsg+"</h4>").appendTo($(wrapprice))		  			
 			}
-			
+			//给秒杀页面添加点击动态效果
+			$("#kist ").on("mouseenter","img",function(){
+				$(this).width($(this).width()+5).fadeTo("fast",0.7)
+				$(this).height($(this).height()+5)
+			 })		
+			$("#kist ").on("mouseleave","img",function(){
+				$(this).width($(this).width()-5).fadeTo("fast",1)
+				$(this).height($(this).height()-5)
+			 })	
 			
 		})	
-		
-		
-		
 			 show_time()
 			 addmain("mainphone","../js/phone.json")
 			 addmain("mainshoes","../js/shoes.json")
 		//添加页面活动效果
-		$(".mainbrand li").mouseenter(function(){
-			console.log(1111)
-			$(this).hide()
-		})
-		
-		$(".mainbrand li").mouseenter(function(){
-			console.log(1111)
-			$(this).show()
-		})
 	
 })//$
  
@@ -75,20 +71,39 @@
 			for(var i=0;i<arr2.length;i++){
 			{ $("<li><a href=#><img src="+arr2[i]+"></a></li>").appendTo( $(mainbrand))}
 			}
+			//给brand添加点击动态效果
 			
+			$(".mainbrand ").on("mouseenter","img",function(){
+				$(this).width($(this).width()+5).fadeTo("fast",0.7)
+				$(this).height($(this).height()+5)
+					
+			})
+			$(".mainbrand ").on("mouseleave","img",function(){
+				$(this).width($(this).width()-5).fadeTo("fast",1)
+				$(this).height($(this).height()-5)
+			})
+				
+		    //给右边产品添加点击动态效果
+			$(".mainlist ").on("mouseenter","img",function(){
+				$(this).width($(this).width()+5).fadeTo("fast",0.7)
+					$(this).height($(this).height()+5)
+					
+			})
+			$(".mainlist ").on("mouseleave","img",function(){
+				$(this).width($(this).width()-5).fadeTo("fast",1)
+				$(this).height($(this).height()-5)
+			 })
+			//给左边产品添加点击动态效果	
+			$(".mainl ").on("mouseenter","img",function(){
+				$(this).width($(this).width()+5).fadeTo("fast",0.7)
+				$(this).height($(this).height()+5)
+			 })		
+			$(".mainl ").on("mouseleave","img",function(){
+				$(this).width($(this).width()-5).fadeTo("fast",1)
+				$(this).height($(this).height()-5)
+			 })	
 	    })
 	}//function
-
-
-
-
-
-
-
-
-
-
-
 
 
 

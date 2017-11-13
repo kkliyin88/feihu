@@ -13,7 +13,7 @@
 		<script src="../js/count.js"></script>
 	</head>
 
-	<body>
+	<body>  
 		<!--top-->
 		<section id="top">
 			<div id="left">
@@ -90,8 +90,8 @@
 		<section id="goodsbox">
 			<table class="table">
 				<tr class="title">
-					<td class="goodsselect">
-						<input type="checkbox">
+					<td class="goodsselect colone">
+						<input type="checkbox" id="allcheck" />
 						<span>全选</span>
 					</td>
 					<td class="pic">飞虎自营商品</td>
@@ -106,9 +106,9 @@
 				</tr>
 			</table>
 			<div class=total>
-				<span class=totalcost>Y 10000</span>
-				<span class=totalattr>总金额:</span>
-				
+				<span id="dropcart">清空购物车</span>
+				<span id="totalcost"></span>
+				<span class="totalattr">总金额:</span>
 			</div>
 			<div class="empty">
 				<div class="notice">您的购物车里还没有添加任何商品</div>

@@ -144,13 +144,13 @@ body {
 	width: 1200px;
 	border-top: 2px solid #c7012c;
 	margin: 0 28px;
-	
+	background: #fff;
 }
-
-#goodsbox table tr{
-	border: 1px solid green;}
+#goodsbox table{ border-collapse:collapse;}
+#goodsbox table tr{border: 1px solid #ddd;height: 100px;}
+#goodsbox table tr.title{height:40px;}
+	.goodsselect, .colone{border: 1px solid #ddd;}
 #goodsbox table tr .goodsselect {
-		
 		width: 60px;
 		border: 1px solid #ddd;
 }
@@ -190,6 +190,9 @@ display: inline-block;margin: 2px;font-size: 12px;}
 #goodsbox table tr .operator span.grep{border-left: 2px solid #a47979 ;border-right: 2px solid #a4e2ff;display: inline-block;width: 1px;}
 #goodsbox .total span{width: 80px;height: 100px;display: block;float: right;
 font-size: 18px;margin-right:2px ;line-height: 30px;}
-#goodsbox .total{display: none;}
-#goodsbox .total span.totalcost{color:red;}
+#goodsbox .total span#dropcart{float: left;font-size: 11px;color: #999;}
+#goodsbox .total span#dropcart:hover{text-decoration: underline;color: red;}
+#goodsbox .total span#totalcost{color:red}
+
+#goodsbox .total span #totalcost{color:red;}
 #goodsbox .empty{width: 1200px;height: 250px;border: #ddd;}

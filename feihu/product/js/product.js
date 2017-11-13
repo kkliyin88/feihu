@@ -2,9 +2,9 @@
 //top开始
     $(function(){
 			
-		//设置全局变量arr用于存cookie信息	
-		
-			//通过ajax获取jsonwen文件
+		//获取购物车商品数量
+		sum=$.cookie("sum")?$.cookie("sum"):0
+		 $(".cartnum").html(sum)
 		
       $.getJSON("../js/menu.json",function(obj){
 			  var arr=obj.menu1
@@ -200,13 +200,14 @@
 		   $.getJSON("../js/phone.json",function(obj){
 		    	var obj=obj.id2050226000450id
 			   var cookieobj={
-			        "id":obj.id,
-			         "name":obj.name2,
-			        "prices":obj.prices,
-			       "img":obj.img2,
-			      "checked":"checked",
-			       " unit":obj.unit,
-			        "num":1
+			        id:obj.id,
+			         name:obj.name2,
+			        price:obj.prices,
+			       img:obj.img2,
+			      checked:true,
+			        num:"1",
+			       unit:obj.unit
+			     
 			    }
 			     
 			    //购物车总数
@@ -237,23 +238,20 @@
                     	  arr=[];  
                     	 arr.push(cookieobj) ;
                     }
-				        
-			            
-			      //重新写入cookie
-			        sum++  
-			        console.log(flag)
+				   //显示购物车总数     
+				    	console.log(arr.length)
+				    	
+				 
+				   for(var r=0;r<arr.length;r++){
+				     sum=parseInt(arr[r].num)+sum
+				    console.log(parseInt(arr[r].num))
+				   }
 			    $(".cartnum").html(sum)
-			   console.log(arr)
-//			    $.cookie("sum",JSON.stringify(sum), {expires:30,path:"/"})
+			  
+			   $.cookie("sum",JSON.stringify(sum),{expires:7,path:"/"})
 			    $.cookie("mycart",JSON.stringify(arr),{expires:7,path:"/"})
-			   
-			    
 		  })//getJSON
 	});//enjoy click  
-	  
-	
-	
-	
 })//$
    
 
