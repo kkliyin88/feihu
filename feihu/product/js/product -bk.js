@@ -7,7 +7,7 @@
 		
 		//获取购物车商品数量
 		sum=$.cookie("sum")?$.cookie("sum"):0
-		 $(".cartnum").html(sum)   
+		 $(".cartnum").html(sum)
 		
       $.getJSON("../js/menu.json",function(obj){
 			  var arr=obj.menu1
@@ -71,22 +71,17 @@
 		//	//创建放大镜模块  
 		
 		  $.getJSON("../js/phone.json",function(obj){
-             	
-             	var url=location.search
-		        var id=url.substring(3)
-		        console.log(id)
-		   	   for(var i=0;i<obj.length;i++){
-		   	     	if(id==obj[i].id){
-		   	     	var obj=obj[i]
-		   	     	break;
-		   	     	}
-		   	   }
-		   	   console.log(obj)
-		   	  
+		  	 
+//		  	var ID="id"+id+"id";
+               var url=location.search
+			console.log(url)
+			var id=url.substring(1)  
+			  console.log(id)
+
+		     var obj=obj.id2050226000733id   //全局变量
 		  	  var smallimg=obj.smallimg  
 		      var bigimg=obj.bigimg
-		       
-		    	 //左边商品图片部分
+		 //左边商品图片部分
 		     var img=$("<img class=pic src="+obj.img+" />").appendTo(".img")
 		     
 		      $("<img class=bigimg src="+obj.img+"  />").appendTo(".bigdiv") 
@@ -179,7 +174,7 @@
 	      sum=$.cookie("sum")?parseInt(JSON.parse($.cookie("sum"))):0
 	      
 	    var offset = $("#cart").offset();  //结束的地方的元素
-	$("#addenjoy").click(function(event){   //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
+	$(".addenjoy").click(function(event){   //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
 		var addcar = $(this);
 		var img = $(".pic").attr('src');
 		
@@ -211,15 +206,10 @@
 	          
 		   $.getJSON("../js/phone.json",function(obj){
 		   	
-               var url=location.search
-		        var id=url.substring(3)
-		   	   for(var i=0;i<obj.length;i++){
-		   	     	if(id==obj[i].id){
-		   	     		var obj=obj[i]
-		   	     	     break;
-		   	     	}
-		   	   }
-//		    
+//		   	for(var i=0;i<obj.length){}
+		   	
+		   	
+		    	var obj=obj.id2050226000450id
 			   var cookieobj={
 			        id:obj.id,
 			         name:obj.name2,
@@ -229,8 +219,7 @@
 			        num:"1",
 			       unit:obj.unit
 			    }
-			   console.log(cookieobj)
-			   
+			     
 			    //购物车总数
 			    
 			    //获取cookie,判断cookie中是否有此产品的记录
@@ -239,39 +228,36 @@
 			      if(arr){
 				      	var arr=JSON.parse(arr)//获取原来数据
 				        //遍历数组查找相同的id好 
-				         console.log("has cookie")
 				        var flag =true;
 				        for(var i=0;i<arr.length;i++){
 				        	 if(cookieobj.id==arr[i].id){
 				        	     arr[i].num++
 				        	     flag =false;
 				        	     break;
-				        	     console.log("进入true")  
+				        	     console.log("进入true")
 				        	  }
 				        } 
 				        
 				        if(flag){
-				            console.log(arr)
+				            
 				        	 arr.push(cookieobj) ;
-				        	
+				        	  console.log("进入false")
 				         }   
 				        
                     }else{
-                    	console.log("cookie is null")
                     	  arr=[];  
                     	 arr.push(cookieobj) ;
                     }
 				   //显示购物车总数     
 				    	console.log(arr.length)
 				    	
-				     //初始化sum=0
-				     var sum=0
+				 
 				   for(var r=0;r<arr.length;r++){
 				     sum=parseInt(arr[r].num)+sum
 				    console.log(parseInt(arr[r].num))
 				   }
 			    $(".cartnum").html(sum)
-			  console.log($.cookie("mycart"))
+			  
 			   $.cookie("sum",JSON.stringify(sum),{expires:7,path:"/"})
 			    $.cookie("mycart",JSON.stringify(arr),{expires:7,path:"/"})
 		  })//getJSON

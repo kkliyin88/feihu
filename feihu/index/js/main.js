@@ -53,16 +53,16 @@
 			   for(var i=0;i<arr.length;i++){
 			   		var obj=arr[i]
 			   		if(i==0){
-			   		   $("<a href=../../product/html/"+obj.id+".html><img src="+obj.img+"></a>").appendTo( $(mainll))
+			   		   $("<a href=../../goodslist/html/goodslist.html?id"+obj.id+" ><img src="+obj.img+"></a>").appendTo( $(mainll))
 			   		}else if(i==1)
-			   		{ $("<li><a href=../../product/html/"+obj.id+".html><img src="+obj.img+"></a></li>").appendTo( $(ul1))}
+			   		{ $("<li><a href=../../product/html/product.html?id"+obj.id+" ><img src="+obj.img+"></a></li>").appendTo( $(ul1))}
 			   		else if(i==2)
-			   		{{ $("<li><a href=../../product/html/"+obj.id+".html><img src="+obj.img+"></a></li>").appendTo( $(ul1))}}
+			   		{{ $("<li><a href=../../product/html/product.html?id"+obj.id+" ><img src="+obj.img+"></a></li>").appendTo( $(ul1))}}
 			   		else{
 			   		var dl=$("<li><dl></dl></li>").appendTo($(ul2))
-			   		 $(" <dt><a href=../../product/html/"+obj.id+".html><img src="+obj.img+"></a></dt>").appendTo( $(dl))
-			   		  $(" <dd><a href=../../product/html/"+obj.id+".html class='mainname'>"+obj.name+"</a></dd>").appendTo( $(dl))
-			   		 $("<a href=../../product/html/"+obj.id+".html><b class=mainprice>"+obj.unit+obj.prices+"</b></a>").appendTo( $(dl))	    
+			   		 $(" <dt><a href=../../product/html/product.html?id"+obj.id+" ><img src="+obj.img+"></a></dt>").appendTo( $(dl))
+			   		  $(" <dd><a href=../../product/html/product.html?id"+obj.id+" class='mainname'>"+obj.name+"</a></dd>").appendTo( $(dl))
+			   		 $("<a href=../../product/html/product.html?id"+obj.id+"><b class=mainprice>"+obj.unit+obj.prices+"</b></a>").appendTo( $(dl))	    
 			   		}
 		        }//for
 		        

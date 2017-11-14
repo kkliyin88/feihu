@@ -18,7 +18,6 @@ $(function(){
 	    	     if(obj.checked)
 	    	     { $("<td class=goodsselect><input class=select type=checkbox checked=checked /></td>").appendTo(tr);}
 			    else{ $("<td><input class=select type=checkbox /></td>").appendTo(tr);}
-//	    	    
 				$("<td class=pic><img src="+obj.img+"/></td>" ).appendTo(tr)
 			    $("<td class=name>"+obj.name+"</td>" ).appendTo(tr)
 			    var tdnum=$("<td class=num> </td>" ).appendTo(tr)
@@ -49,7 +48,6 @@ $(function(){
 //	    	
 	    	  $(".goods").on("click",".minus",function(){
 	         		var cookieArr = JSON.parse( $.cookie("mycart"));
-	         		console.log(cookieArr);
 					var index = $(this).index(".goods .minus");
 					if(cookieArr[index].num>0){cookieArr[index].num--;}
 					console.log(cookieArr[index].num);
@@ -60,15 +58,10 @@ $(function(){
 	    	 // checkbox
 	    	   $(".goods").on("click",".select",function(){
 	    	   	    var cookieArr = JSON.parse( $.cookie("mycart") );
-	    	   	    console.log(cookieArr)
 					var index = $(this).index(".goods .select");
-					console.log([index])
-					console.log(cookieArr[index])
-					console.log(cookieArr[index].checked)
 				    cookieArr[index].checked=!cookieArr[index].checked
 				 
 				   //设置选框的值
-				  
 				    $.cookie("mycart", JSON.stringify(cookieArr), {expires:30,path:"/"});
 				    isAllcheck() 
 				    reflash()
@@ -121,7 +114,6 @@ $(function(){
 					$.cookie("mycart", JSON.stringify(cookieArr), {expires:30, path:"/"});         
 					reflash()
     	    	} )
-    	    	
 	    	    
 	    	    //删除本条
 	    	    $(".goods").on("click",".del",function(){
@@ -131,11 +123,8 @@ $(function(){
 					var cookieArr = JSON.parse( $.cookie("mycart") );
 					var index=$(this).index(".goods .del")
 					//遍历cookieArr
-					console.log(index)
 					//删除数组
 					cookieArr.splice(index,1)
-					console.log(cookieArr)
-					
 					//重新存入最新的cookieArr,替换原来的cookie
 					$.cookie("mycart", JSON.stringify(cookieArr), {expires:30, path:"/"});      
 					//刷新UI

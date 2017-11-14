@@ -1,8 +1,5 @@
-{
-	"status": 1,
-	"msg": "success",
-	"id2050226000450id": 
-		      {
+
+		      [{
 			"id": "2050226000450",
 			"name":"华为（Huawei）畅享7 Plus 64GB 移动联通电信4G手机 全网通 双卡双待（流光金） 流光金  ",
 			"msg1":"5.5英寸大屏幕 4000毫安续航大电池",
@@ -20,10 +17,34 @@
 			"weight":"0.3kg",
 			"originplace":"中国大陆",
 			"starttime":"2017/6/30 15:40:03",
-			
 			"smallimg":["../images/2050226000450/smallimg/01.jpg","../images/2050226000450/smallimg/02.jpg","../images/2050226000450/smallimg/03.jpg","../images/2050226000450/smallimg/04.jpg"],
 			"bigimg":["../images/2050226000450/bigimg/01.jpg","../images/2050226000450/bigimg/02.jpg","../images/2050226000450/bigimg/03.jpg","../images/2050226000450/bigimg/04.jpg","../images/2050226000450/bigimg/05.jpg"],
 		    "detailimg":["../images/2050226000450/detailimg/01.jpg","../images/2050226000450/detailimg/02.jpg","../images/2050226000450/detailimg/03.jpg","../images/2050226000450/detailimg/04.jpg","../images/2050226000450/detailimg/05.jpg"],
 		    "message":["../images/2050226000450/others/01.png","../images/2050226000450/others/02.png","../images/2050226000450/others/03.png"]
+ },
+
+		      {
+			"id": "2050226000733",
+			"name":"三星（Samsung）Galaxy S8（SM-G9508）4GB+64GB 移动联通电信4G手机 全网通 双卡双待（谜夜黑） 谜夜黑   ",
+			"msg1":"null",
+			"prices":5688,
+			"killprices":"null",
+			"unit":"¥",
+			"name2":"三星 S8 4GB+64GB 全网通（谜夜黑））",
+			"prompt":"温馨提示：该商品不支持货到付款",
+			"img":"../images/2050226000733/01.jpg",
+			"img2":"../../product/images/2050226000733/01.jpg",
+			"killmsg":"null",
+			"checked":true,
+			"service":"由 飞虎乐购 发货，并提供售后服务。",
+			"supplier":"华为",
+			"weight":"0.3kg",
+			"originplace":"中国大陆",
+			"starttime":"2017/6/30 15:40:03",
+			
+			"smallimg":["../images/2050226000733/smallimg/01.jpg","../images/2050226000733/smallimg/02.jpg","../images/2050226000733/smallimg/03.jpg","../images/2050226000733/smallimg/04.jpg"],
+			"bigimg":["../images/2050226000733/bigimg/01.jpg","../images/2050226000733/bigimg/02.jpg","../images/2050226000733/bigimg/03.jpg","../images/2050226000733/bigimg/04.jpg","../images/2050226000733/bigimg/05.jpg"],
+		    "detailimg":["../images/2050226000733/detailimg/01.jpg","../images/2050226000733/detailimg/02.jpg","../images/2050226000733/detailimg/03.jpg","../images/2050226000733/detailimg/04.jpg","../images/2050226000733/detailimg/05.jpg"],
+		    "message":["../images/2050226000733/others/01.png","../images/2050226000733/others/02.png","../images/2050226000733/others/03.png"]
  }
-}
+]
